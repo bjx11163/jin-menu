@@ -1,0 +1,82 @@
+<h2>🎨 以复古街景为背景的小程序预览</h2>
+<p class="subtitle">主色调从图片提取：暖棕/复古金/墨绿</p>
+
+<div class="mockup">
+  <div class="mockup-header">📱 手机屏幕预览</div>
+  <div class="mockup-body" style="position:relative;overflow:hidden;min-height:500px;background:center/cover url('app-bg.jpg');border-radius:0 0 12px 12px">
+
+    <!-- 半透明遮罩让文字可读 -->
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.35)"></div>
+
+    <!-- 内容 -->
+    <div style="position:relative;z-index:1;padding:20px;color:#fff">
+
+      <!-- 顶部 -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:30px">
+        <span style="font-size:13px;font-weight:500">👩 小胖的厨房</span>
+        <span style="font-size:13px;background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:12px">❤️ 收藏</span>
+      </div>
+
+      <!-- 搜索栏 -->
+      <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border-radius:10px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:20px">
+        🔍 搜搜今天想吃啥...
+      </div>
+
+      <!-- 分类标签 -->
+      <div style="display:flex;gap:8px;margin-bottom:25px">
+        <span style="background:rgba(255,255,255,0.2);padding:5px 14px;border-radius:14px;font-size:12px">🥩 荤菜</span>
+        <span style="background:rgba(212,175,55,0.5);padding:5px 14px;border-radius:14px;font-size:12px;font-weight:600">🥬 素菜</span>
+        <span style="background:rgba(255,255,255,0.2);padding:5px 14px;border-radius:14px;font-size:12px">🍲 汤</span>
+        <span style="background:rgba(255,255,255,0.2);padding:5px 14px;border-radius:14px;font-size:12px">🥟 主食</span>
+      </div>
+
+      <!-- 菜品牌 -->
+      <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border-radius:14px;padding:14px;margin-bottom:12px;display:flex;gap:12px">
+        <div style="width:60px;height:60px;border-radius:8px;background:rgba(255,255,255,0.15);flex-shrink:0"></div>
+        <div style="flex:1">
+          <div style="font-weight:600;font-size:14px">番茄炒蛋 ⭐4.9</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7);margin:3px 0">已点18次 · 上次吃3天前</div>
+          <div style="font-size:11px;color:rgba(212,175,55,0.9)">❤️ 收藏 | 🎲 随机</div>
+        </div>
+        <div style="font-size:11px;background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:8px;height:fit-content">+ 点菜</div>
+      </div>
+
+      <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border-radius:14px;padding:14px;margin-bottom:12px;display:flex;gap:12px">
+        <div style="width:60px;height:60px;border-radius:8px;background:rgba(255,255,255,0.15);flex-shrink:0"></div>
+        <div style="flex:1">
+          <div style="font-weight:600;font-size:14px">红烧肉 ⭐4.7</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7);margin:3px 0">已点12次 · 上次吃5天前</div>
+          <div style="font-size:11px;color:rgba(212,175,55,0.9)">❤️ 收藏 | 🎲 随机</div>
+        </div>
+        <div style="font-size:11px;background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:8px;height:fit-content">+ 点菜</div>
+      </div>
+
+      <!-- 底部导航 -->
+      <div style="display:flex;justify-content:space-around;margin-top:30px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.15)">
+        <span style="font-size:11px;text-align:center;opacity:0.8">📋 菜单</span>
+        <span style="font-size:11px;text-align:center;font-weight:600">🛒 购物车 (2)</span>
+        <span style="font-size:11px;text-align:center;opacity:0.8">👤 我的</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div style="display:flex;gap:10px;margin-top:15px;flex-wrap:wrap">
+  <span style="background:#2a2a3e;padding:6px 14px;border-radius:16px;font-size:12px">🎨 暖棕+复古金主色</span>
+  <span style="background:#2a2a3e;padding:6px 14px;border-radius:16px;font-size:12px">🌫️ 毛玻璃菜单卡片</span>
+  <span style="background:#2a2a3e;padding:6px 14px;border-radius:16px;font-size:12px">📷 毛玻璃+圆角</span>
+  <span style="background:#2a2a3e;padding:6px 14px;border-radius:16px;font-size:12px">✨ 金色点缀（D4AF37）</span>
+</div>
+
+<h3 style="margin-top:25px">这个风格对路吗？</h3>
+<div class="options">
+  <div class="option" data-choice="对" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>对味！继续</h3></div>
+  </div>
+  <div class="option" data-choice="调" onclick="toggleSelect(this)">
+    <div class="letter">🔄</div>
+    <div class="content"><h3>想调一下风格</h3></div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<h2>设计第六部分：订单流转 + 通知</h2>
+<p class="subtitle">从她点菜到你做完，完整链路</p>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:20px;margin:15px 0">
+  <div style="display:flex;flex-direction:column;gap:15px">
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="background:#3a3a50;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">1</div>
+      <div style="flex:1">
+        <div style="font-weight:600;color:#f0c040">她选菜 → 提交订单</div>
+        <div style="font-size:12px;color:#aaa">购物车结算，写备注+预约时间，点提交</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="background:#3a3a50;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">2</div>
+      <div style="flex:1">
+        <div style="font-weight:600;color:#f0c040">订单写入云数据库</div>
+        <div style="font-size:12px;color:#aaa">状态设为 pending，记录时间</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="background:#3a3a50;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">3</div>
+      <div style="flex:1">
+        <div style="font-weight:600;color:#f0c040">你收到微信订阅消息</div>
+        <div style="font-size:12px;color:#aaa">云函数调用微信模板消息，通知"她点了XXX，快去做饭"</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="background:#3a3a50;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">4</div>
+      <div style="flex:1">
+        <div style="font-weight:600;color:#f0c040">你打开管理端 → 看到订单</div>
+        <div style="font-size:12px;color:#aaa">按时间/预约排序，显示备注</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="background:#3a3a50;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">5</div>
+      <div style="flex:1">
+        <div style="font-weight:600;color:#f0c040">你做完了 → 标记"已完成"</div>
+        <div style="font-size:12px;color:#aaa">可选上传成品照，她端会收到通知</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="background:#3a3a50;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">6</div>
+      <div style="flex:1">
+        <div style="font-weight:600;color:#f0c040">她看到订单完成 → 评价/打分</div>
+        <div style="font-size:12px;color:#aaa">可选打分+写评语，数据入统计</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="background:#2a2a3e;border-radius:8px;padding:12px;font-size:12px;color:#aaa;margin-top:10px">
+  <strong>🔔 微信订阅消息说明：</strong><br>
+  她第一次提交订单时，微信会弹"是否允许通知" → 她点允许。<br>
+  之后每次她下单，你都能收到微信服务通知。<br>
+  这是微信官方能力，不需要自己搭推送服务。
+</div>
+
+<h3 style="margin-top:25px">订单流转清楚吗？</h3>
+<div class="options">
+  <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>清楚，继续</h3></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">🔄</div>
+    <div class="content"><h3>想调整</h3></div>
+  </div>
+</div>

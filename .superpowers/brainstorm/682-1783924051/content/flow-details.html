@@ -1,0 +1,57 @@
+<h2>拿手菜模式 — 核心流程</h2>
+<p class="subtitle">大概想一下整个流程长啥样，对齐一下想法</p>
+
+<div style="background:#1e1e2e;border-radius:12px;padding:20px;margin:20px 0">
+  <div style="display:flex;align-items:center;gap:15px;flex-wrap:wrap;justify-content:center">
+    <div style="background:#2a2a3e;padding:12px 18px;border-radius:8px;text-align:center;min-width:100px">
+      <div style="font-size:24px">📱</div>
+      <div style="font-size:12px;margin-top:4px">她扫码</div>
+    </div>
+    <div style="font-size:20px">→</div>
+    <div style="background:#2a2a3e;padding:12px 18px;border-radius:8px;text-align:center;min-width:100px">
+      <div style="font-size:24px">📋</div>
+      <div style="font-size:12px;margin-top:4px">看菜单</div>
+    </div>
+    <div style="font-size:20px">→</div>
+    <div style="background:#2a2a3e;padding:12px 18px;border-radius:8px;text-align:center;min-width:100px">
+      <div style="font-size:24px">🛒</div>
+      <div style="font-size:12px;margin-top:4px">点菜</div>
+    </div>
+    <div style="font-size:20px">→</div>
+    <div style="background:#2a2a3e;padding:12px 18px;border-radius:8px;text-align:center;min-width:100px">
+      <div style="font-size:24px">🔔</div>
+      <div style="font-size:12px;margin-top:4px">你收到通知</div>
+    </div>
+    <div style="font-size:20px">→</div>
+    <div style="background:#2a2a3e;padding:12px 18px;border-radius:8px;text-align:center;min-width:100px">
+      <div style="font-size:24px">🍳</div>
+      <div style="font-size:12px;margin-top:4px">你去做</div>
+    </div>
+  </div>
+</div>
+
+<h3>第二问：菜单里要有啥信息？</h3>
+
+<div class="options">
+  <div class="option" data-choice="基础" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>基础版</h3>
+      <p>菜名 + 照片 + 简短描述。够用就行</p>
+    </div>
+  </div>
+  <div class="option" data-choice="详细" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>详细版</h3>
+      <p>菜名 + 照片 + 描述 + 用料清单 + 辣度/口味标签</p>
+    </div>
+  </div>
+  <div class="option" data-choice="花哨" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>花哨版</h3>
+      <p>菜名 + 照片 + 描述 + 用料 + 标签 + 你的评分/难度 + 她点过的次数 + "上次吃是XX天前"</p>
+    </div>
+  </div>
+</div>

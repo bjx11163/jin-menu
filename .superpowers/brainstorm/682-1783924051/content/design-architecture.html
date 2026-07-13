@@ -1,0 +1,59 @@
+<h2>设计第一部分：整体架构</h2>
+<p class="subtitle">微信小程序 + 云开发，两个角色</p>
+
+<div class="mockup">
+  <div class="mockup-header">🏗️ 系统架构图</div>
+  <div class="mockup-body" style="padding:25px;text-align:center">
+    <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:15px">
+      <div style="flex:1;min-width:120px;background:#e8f4fd;border:2px solid #0a84ff;border-radius:12px;padding:15px;text-align:center">
+        <div style="font-size:28px">📱</div>
+        <div style="font-weight:600;color:#1d1d1f">微信小程序</div>
+        <div style="font-size:11px;color:#666">一个代码包，两套界面</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:24px;color:#666">⇄</div>
+      <div style="flex:1;min-width:120px;background:#e8f4fd;border:2px solid #34c759;border-radius:12px;padding:15px;text-align:center">
+        <div style="font-size:28px">☁️</div>
+        <div style="font-weight:600;color:#1d1d1f">微信云开发</div>
+        <div style="font-size:11px;color:#666">云数据库 + 云存储 + 云函数</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left">
+      <div style="background:#f5f5f7;border-radius:8px;padding:12px">
+        <div style="font-weight:600">👩 女朋友（顾客端）</div>
+        <div style="font-size:12px;color:#666;margin-top:5px">
+          • 扫码进入小程序<br>
+          • 看菜单/分类浏览<br>
+          • 点菜 + 购物车<br>
+          • 个人中心（历史/收藏）<br>
+          • 留言备注/预约时间
+        </div>
+      </div>
+      <div style="background:#f5f5f7;border-radius:8px;padding:12px">
+        <div style="font-weight:600">👨 你（管理端）</div>
+        <div style="font-size:12px;color:#666;margin-top:5px">
+          • 菜品管理(增删改)<br>
+          • 上传/编辑图片<br>
+          • 查看接单<br>
+          • 做饭统计<br>
+          • 处理心愿/发起投票
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#fef3e2;border:1px solid #ff9f0a;border-radius:8px;padding:12px">
+  <strong>⚠️ 注意：</strong>同一个小程序，通过微信openid区分是你还是她。你第一次打开时设一个"我是厨师"的入口，她扫码直接进点菜页。
+</div>
+
+<h3 style="margin-top:25px">这块看起来合理吗？</h3>
+<div class="options">
+  <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>合理，继续</h3></div>
+  </div>
+  <div class="option" data-choice="调整" onclick="toggleSelect(this)">
+    <div class="letter">🔄</div>
+    <div class="content"><h3>有想法要调</h3></div>
+  </div>
+</div>

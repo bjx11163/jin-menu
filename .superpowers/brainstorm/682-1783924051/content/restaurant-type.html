@@ -1,0 +1,40 @@
+<h2>点菜小程序 — 第一步：餐厅类型</h2>
+<p class="subtitle">你这个小程序是给哪种餐厅用的？决定了功能范围</p>
+
+<div class="options">
+  <div class="option" data-choice="中餐" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>🍜 中餐馆</h3>
+      <p>普通中餐/炒菜馆，按菜品点单</p>
+    </div>
+  </div>
+  <div class="option" data-choice="火锅" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>🔥 火锅店</h3>
+      <p>锅底+涮菜分开点，可能有自助/套餐模式</p>
+    </div>
+  </div>
+  <div class="option" data-choice="茶饮" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>🧋 茶饮店</h3>
+      <p>奶茶/咖啡，有规格选项（糖度/冰量/加料）</p>
+    </div>
+  </div>
+  <div class="option" data-choice="快餐" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <h3>🍔 快餐/简餐</h3>
+      <p>套餐为主，出餐快，扫码即走</p>
+    </div>
+  </div>
+  <div class="option" data-choice="其他" onclick="toggleSelect(this)">
+    <div class="letter">E</div>
+    <div class="content">
+      <h3>❓ 其他</h3>
+      <p>以上都不是，我来说明</p>
+    </div>
+  </div>
+</div>

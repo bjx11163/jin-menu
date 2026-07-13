@@ -1,0 +1,77 @@
+<h2>设计第七部分：技术实现方案</h2>
+<p class="subtitle">落地细节，心里有数</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0">
+
+  <div style="background:#2a2a3e;border-radius:10px;padding:15px">
+    <div style="font-weight:600;color:#6cc070;margin-bottom:8px">🧩 前端</div>
+    <div style="font-size:13px;color:#ccc">
+      微信小程序原生 wxml + wxss + js<br><br>
+      <strong>页面清单：</strong><br>
+      • 启动页（选角色）<br>
+      • 菜单首页（菜品列表+分类）<br>
+      • 菜品详情（大图+信息+点菜）<br>
+      • 购物车<br>
+      • 个人中心（她的）<br>
+      • 管理首页（接单）<br>
+      • 菜品编辑（增删改+图片）<br>
+      • 图片编辑器<br>
+      • 统计页面<br>
+      • 投票/心愿/纪念日设置
+    </div>
+  </div>
+
+  <div style="background:#2a2a3e;border-radius:10px;padding:15px">
+    <div style="font-weight:600;color:#f0c040;margin-bottom:8px">☁️ 云端</div>
+    <div style="font-size:13px;color:#ccc">
+      微信云开发（无需服务器）<br><br>
+      <strong>云数据库：</strong>6个集合<br>
+      dishes / categories / orders / reviews / favorites / wishlist<br><br>
+      <strong>云存储：</strong>菜品图片 / 成品照片<br><br>
+      <strong>云函数（2-3个）：</strong><br>
+      • 提交订单 → 发订阅消息<br>
+      • 纪念日检查 → 触发特餐提示<br>
+      • 定时统计（可选）
+    </div>
+  </div>
+
+  <div style="background:#2a2a3e;border-radius:10px;padding:15px">
+    <div style="font-weight:600;color:#b080f0;margin-bottom:8px">🎨 样式</div>
+    <div style="font-size:13px;color:#ccc">
+      <strong>背景：</strong>你的复古街景图（全屏毛玻璃效果）<br>
+      <strong>主色调：</strong>暖棕 #8B6B4D / 复古金 #D4AF37 / 深咖 #3E2723<br>
+      <strong>卡片：</strong>毛玻璃效果 backdrop-filter: blur<br>
+      <strong>字体：</strong>系统字体 + 中文优雅排版<br>
+      <strong>圆角：</strong>12px-16px 大圆角
+    </div>
+  </div>
+
+  <div style="background:#2a2a3e;border-radius:10px;padding:15px">
+    <div style="font-weight:600;color:#f07070;margin-bottom:8px">📦 部署</div>
+    <div style="font-size:13px;color:#ccc">
+      <strong>开发工具：</strong>微信开发者工具<br>
+      <strong>小程序ID：</strong>需要注册一个微信小程序（个人主体免费）<br>
+      <strong>云开发：</strong>在开发者工具里开通，一键关联<br>
+      <strong>发布：</strong>微信审核（1-2天），个人主体可发<br>
+      <strong>扫码：</strong>生成小程序码，她微信扫了进
+    </div>
+  </div>
+
+</div>
+
+<div style="background:#fef3e2;border:1px solid #ff9f0a;border-radius:8px;padding:12px;font-size:12px;color:#665;margin-top:10px">
+  <strong>💡 估算工作量：</strong><br>
+  页面约10个，核心功能6-7个。按小程序开发经验，一个人做大约 <strong>1-2周</strong>（每天2-3小时的话2-3周）。先从核心功能做起：菜单浏览 → 点菜下单 → 接单标记 → 通知，其他功能后续迭代。
+</div>
+
+<h3 style="margin-top:25px">技术方案清楚吗？</h3>
+<div class="options">
+  <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>清楚，可以写设计文档了</h3></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">🔄</div>
+    <div class="content"><h3>有想法要调</h3></div>
+  </div>
+</div>

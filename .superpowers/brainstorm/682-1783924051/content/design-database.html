@@ -1,0 +1,56 @@
+<h2>设计第二部分：数据库结构</h2>
+<p class="subtitle">云开发数据库，几个核心集合</p>
+
+<div style="background:#2a2a3e;border-radius:10px;padding:18px;margin:15px 0;font-family:monospace;font-size:13px;line-height:1.6">
+  <div style="color:#f0c040">// 菜品集合 — 你维护</div>
+  <span style="color:#6cc070">dishes</span> {<br>
+  <span style="color:#888">  _id, name, photo, category, description,</span><br>
+  <span style="color:#888">  ingredients[], difficulty, rating(你的评分),</span><br>
+  <span style="color:#888">  tags[]（辣度/口味）, createdAt, updatedAt</span><br>
+  }
+</div>
+
+<div style="background:#2a2a3e;border-radius:10px;padding:18px;margin:15px 0;font-family:monospace;font-size:13px;line-height:1.6">
+  <div style="color:#f0c040">// 分类集合</div>
+  <span style="color:#6cc070">categories</span> {<br>
+  <span style="color:#888">  _id, name (荤菜/素菜/汤/凉菜/主食), sortOrder</span><br>
+  }
+</div>
+
+<div style="background:#2a2a3e;border-radius:10px;padding:18px;margin:15px 0;font-family:monospace;font-size:13px;line-height:1.6">
+  <div style="color:#f0c040">// 订单集合 — 她点菜时生成</div>
+  <span style="color:#6cc070">orders</span> {<br>
+  <span style="color:#888">  _id, userId(她的openid), items[{dishId, name, quantity, note}],</span><br>
+  <span style="color:#888">  scheduledTime(预约时间), status(pending/done),</span><br>
+  <span style="color:#888">  createdAt, completedAt</span><br>
+  }
+</div>
+
+<div style="background:#2a2a3e;border-radius:10px;padding:18px;margin:15px 0;font-family:monospace;font-size:13px;line-height:1.6">
+  <div style="color:#f0c040">// 评价集合 — 她吃完打分</div>
+  <span style="color:#6cc070">reviews</span> {<br>
+  <span style="color:#888">  _id, orderId, dishId, rating(1-5), comment,</span><br>
+  <span style="color:#888">  photo(你做的成品照), createdAt</span><br>
+  }
+</div>
+
+<div style="background:#2a2a3e;border-radius:10px;padding:18px;margin:15px 0;font-family:monospace;font-size:13px;line-height:1.6">
+  <div style="color:#f0c040">// 收藏/心愿/投票等数据用子集合或独立集合</div>
+  <span style="color:#6cc070">favorites</span> { _id, userId, dishId }<br>
+  <span style="color:#6cc070">wishlist</span> { _id, userId, dishName, status(提议/已学/安排) }<br>
+  <span style="color:#6cc070">votes</span> { _id, createdBy, options[], expiresAt, result }
+</div>
+
+<p style="font-size:12px;color:#888;margin-top:8px">云数据库直接用 JSON 文档存，不需要建表 SQL，简单直接。</p>
+
+<h3 style="margin-top:25px">结构清楚吗？</h3>
+<div class="options">
+  <div class="option" data-choice="clear" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>清楚，继续</h3></div>
+  </div>
+  <div class="option" data-choice="doubt" onclick="toggleSelect(this)">
+    <div class="letter">❓</div>
+    <div class="content"><h3>有疑问</h3></div>
+  </div>
+</div>

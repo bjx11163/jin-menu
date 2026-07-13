@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/wechat开发程序/微信web开发者工具/**)",
+      "Bash(./cli.bat -login)",
+      "Bash(rm -rf \"d:/Model/claude/xcx/pages\" \"d:/Model/claude/xcx/components\" \"d:/Model/claude/xcx/utils\" \"d:/Model/claude/xcx/cloudfunctions\" \"d:/Model/claude/xcx/app.js\" \"d:/Model/claude/xcx/app.json\" \"d:/Model/claude/xcx/app.wxss\" \"d:/Model/claude/xcx/sitemap.json\" \"d:/Model/claude/xcx/project.config.json\" \"d:/Model/claude/xcx/env.list\" 2>/dev/null; ls -la \"d:/Model/claude/xcx/\")"
+    ],
+    "additionalDirectories": [
+      "d:\\Model\\claude\\xcx\\pages"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+<h2>设计第五部分：图片编辑功能</h2>
+<p class="subtitle">你上传菜品照片后的编辑体验</p>
+
+<div class="mockup">
+  <div class="mockup-header">📷 图片编辑流程</div>
+  <div class="mockup-body" style="padding:20px">
+
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:20px">
+      <div style="background:#3a3a50;padding:12px 16px;border-radius:10px;text-align:center;min-width:80px">
+        <div style="font-size:22px">📸</div>
+        <div style="font-size:11px;margin-top:4px">选照片</div>
+      </div>
+      <div style="font-size:18px">→</div>
+      <div style="background:#3a3a50;padding:12px 16px;border-radius:10px;text-align:center;min-width:80px">
+        <div style="font-size:22px">✂️</div>
+        <div style="font-size:11px;margin-top:4px">裁剪/旋转</div>
+      </div>
+      <div style="font-size:18px">→</div>
+      <div style="background:#3a3a50;padding:12px 16px;border-radius:10px;text-align:center;min-width:80px">
+        <div style="font-size:22px">🎨</div>
+        <div style="font-size:11px;margin-top:4px">滤镜/调色</div>
+      </div>
+      <div style="font-size:18px">→</div>
+      <div style="background:#3a3a50;padding:12px 16px;border-radius:10px;text-align:center;min-width:80px">
+        <div style="font-size:22px">✏️</div>
+        <div style="font-size:11px;margin-top:4px">加文字</div>
+      </div>
+      <div style="font-size:18px">→</div>
+      <div style="background:#3a3a50;padding:12px 16px;border-radius:10px;text-align:center;min-width:80px">
+        <div style="font-size:22px">💾</div>
+        <div style="font-size:11px;margin-top:4px">保存</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">
+      <div style="background:#2a2a3e;border-radius:8px;padding:12px">
+        <div style="font-weight:600;color:#f0c040">✂️ 裁剪工具</div>
+        <div style="color:#aaa;margin-top:4px">自由裁剪 / 预设比例(1:1/4:3/16:9) / 旋转 / 翻转</div>
+      </div>
+      <div style="background:#2a2a3e;border-radius:8px;padding:12px">
+        <div style="font-weight:600;color:#f0c040">🎨 滤镜</div>
+        <div style="color:#aaa;margin-top:4px">5-8个预设滤镜：暖食/复古/清新/黑白/胶片/美食增强</div>
+      </div>
+      <div style="background:#2a2a3e;border-radius:8px;padding:12px">
+        <div style="font-weight:600;color:#f0c040">✨ 调色</div>
+        <div style="color:#aaa;margin-top:4px">亮度/对比度/饱和度/色温 — 滑条调节</div>
+      </div>
+      <div style="background:#2a2a3e;border-radius:8px;padding:12px">
+        <div style="font-weight:600;color:#f0c040">✏️ 加文字</div>
+        <div style="color:#aaa;margin-top:4px">输入菜名/描述，选字体/颜色/大小，拖拽摆放位置</div>
+      </div>
+    </div>
+
+    <div style="background:#fef3e2;border:1px solid #ff9f0a;border-radius:8px;padding:12px;margin-top:15px;font-size:12px;color:#665">
+      <strong>💡 实现方案：</strong>用微信小程序 canvas 2D API 实现编辑功能。图片先上传到云存储临时区，编辑完成后再保存到正式路径。所有操作在手机端完成，不需要后端处理图片。
+    </div>
+
+  </div>
+</div>
+
+<h3 style="margin-top:25px">图片编辑方案行吗？</h3>
+<div class="options">
+  <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>行，继续</h3></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">🔄</div>
+    <div class="content"><h3>想调整</h3></div>
+  </div>
+</div>

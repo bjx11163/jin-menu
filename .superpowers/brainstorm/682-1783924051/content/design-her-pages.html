@@ -1,0 +1,50 @@
+<h2>设计第三部分：女朋友端页面</h2>
+<p class="subtitle">她扫码后看到的全部页面</p>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#6cc070;font-weight:600">📱 Tab 1：菜单首页</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    🖼️ 顶部大背景图（你的街景图，毛玻璃效果）<br>
+    🔍 搜索框 — 搜菜名<br>
+    📂 分类标签横向滚动 — 荤菜/素菜/汤/凉菜/主食<br>
+    🍽️ 菜品列表 — 每个显示：照片/菜名/你的评分/已点次数/上次吃/收藏按钮<br>
+    🎲 右下角浮动按钮 — 随机选菜<br>
+    🤖 今日推荐卡片 — "猜你想吃，今天适合吃..."
+  </div>
+</div>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#f0c040;font-weight:600">🛒 Tab 2：购物车</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    📋 已选菜品列表（数量+-/删除）<br>
+    💬 留言备注输入框<br>
+    ⏰ 预约时间选择<br>
+    ✅ 提交订单按钮 → 微信通知你
+  </div>
+</div>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#b080f0;font-weight:600">👤 Tab 3：个人中心</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    📜 点单历史 — 按时间倒序，显示每顿点了啥 + 状态<br>
+    ⭐ 我的评价 — 她打过的分 + 写过的评语<br>
+    ❤️ 我的收藏 — 收藏的菜，点进去直接加购物车<br>
+    🎯 心愿菜单 — "我想吃这个，你快学"<br>
+    📸 你做过的菜 — 你的成品照片合集<br>
+    💝 纪念日进度 — 比如"在一起XXXX天"
+  </div>
+</div>
+
+<p style="font-size:12px;color:#888;margin-top:8px">一共3个底部Tab，没有深层页面跳转。所有功能在三级内完成。</p>
+
+<h3 style="margin-top:25px">女朋友端页面这样安排行吗？</h3>
+<div class="options">
+  <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>行，继续</h3></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">🔄</div>
+    <div class="content"><h3>想调整</h3></div>
+  </div>
+</div>

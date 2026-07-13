@@ -1,0 +1,61 @@
+<h2>设计第四部分：你的管理端</h2>
+<p class="subtitle">你管理菜单、接单、看统计的地方</p>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#f07070;font-weight:600">🔧 入口：小程序设一个"厨师入口"</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    第一次打开小程序时，选"我是厨师" → 输入简单密码（防她误入）<br>
+    以后自动识别，直接进管理端
+  </div>
+</div>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#f07070;font-weight:600">📋 管理首页 — 今日概览</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    🆕 待处理订单列表（她下了啥/预约几点/备注）<br>
+    ✅ 一键标记"已做好"<br>
+    🔔 她提交订单时微信通知你（云函数发模板消息）<br>
+    📊 今日接单数 + 本月累计
+  </div>
+</div>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#f07070;font-weight:600">📝 菜品管理</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    ➕ 新增菜品（填菜名/分类/描述/用料/标签/难度/评分）<br>
+    📷 上传照片 → 弹出编辑器（裁剪+文字+滤镜）<br>
+    ✏️ 编辑/删除已有菜品<br>
+    📂 管理分类（增删排序）
+  </div>
+</div>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#f07070;font-weight:600">📊 统计页面</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    📈 本月做了几顿饭 — 折线图/日历热力图<br>
+    🏆 最受欢迎菜 Top 10<br>
+    📉 女朋友点单趋势（周一最爱点啥/下雨天爱点啥）<br>
+    ⭐ 她的打分汇总
+  </div>
+</div>
+
+<div style="background:#2a2a3e;border-radius:12px;padding:18px;margin:15px 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#f07070;font-weight:600">🎯 互动功能</div>
+  <div style="font-size:13px;color:#ccc;margin-left:15px">
+    🎯 心愿菜单 — 看她提议了啥，标记"已学"或"安排"<br>
+    ⚖️ 发起投票 — 编辑两道菜让她二选一<br>
+    💝 纪念日设置 — 设定日期，到点自动触发特餐提示
+  </div>
+</div>
+
+<h3 style="margin-top:25px">管理端这样安排行吗？</h3>
+<div class="options">
+  <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+    <div class="letter">👍</div>
+    <div class="content"><h3>行，继续</h3></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">🔄</div>
+    <div class="content"><h3>想调整</h3></div>
+  </div>
+</div>
