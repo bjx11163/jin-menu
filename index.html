@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>小金的专属</title>
+  <script>
+    // 微信内置浏览器引导
+    var ua = navigator.userAgent.toLowerCase()
+    if (ua.indexOf('micromessenger') !== -1) {
+      document.write('<div style="position:fixed;inset:0;z-index:9999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center">')
+      document.write('<div style="font-size:60px;margin-bottom:20px">🍳</div>')
+      document.write('<div style="font-size:22px;font-weight:700;color:#333;margin-bottom:12px">小金的专属</div>')
+      document.write('<div style="font-size:15px;color:#999;margin-bottom:30px;line-height:1.6">请在浏览器中打开<br>点右上角 ··· → 在浏览器中打开</div>')
+      document.write('<img src="https://jinandhe-foreverhe-1453703478.cos-website.ap-guangzhou.myqcloud.com/img/guide.png" style="width:200px;border-radius:12px" onerror="this.style.display=\'none\'">')
+      document.write('<div style="font-size:13px;color:#bbb;margin-top:30px">或者复制链接到浏览器打开</div>')
+      document.write('<div style="font-size:12px;color:#D4AF37;margin-top:8px;word-break:break-all;padding:0 20px">jinandhe-foreverhe-1453703478.cos-website.ap-guangzhou.myqcloud.com</div>')
+      document.write('</div>')
+    }
+  </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -11,11 +25,11 @@
       --pink-dark: #E88892;
       --rose: #D47582;
       --cream: #FFF5F0;
-      --card-bg: rgba(255,255,255,0.25);
-      --card-border: rgba(255,255,255,0.35);
+      --card-bg: rgba(255,245,240,0.75);
+      --card-border: rgba(255,245,240,0.5);
       --text: #4A3034;
-      --text-dim: rgba(74,48,52,0.5);
-      --text-light: rgba(74,48,52,0.3);
+      --text-dim: rgba(46,28,32,0.7);
+      --text-light: rgba(46,28,32,0.45);
       --radius: 14px;
       --radius-sm: 8px;
     }
@@ -80,11 +94,11 @@
 
     /* ===== 毛玻璃卡片 ===== */
     .card {
-      background: rgba(255,245,240,0.15);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      background: rgba(255,245,240,0.25);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
       padding: 14px;
       margin-bottom: 10px;
     }
@@ -172,12 +186,12 @@
     }
     .submit-bar > * { pointer-events: auto; }
     .submit-bar .btn-back {
-      background: rgba(255,245,240,0.25);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(255,245,240,0.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 24px;
-      color: var(--text-dim);
+      color: #4A3034;
       padding: 10px 0;
       font-size: 14px;
       cursor: pointer;
@@ -187,12 +201,12 @@
       position: relative;
     }
     .submit-bar .btn-back .back-icon {
-      display: inline-block; width: 52px; height: 52px; flex-shrink: 0;
+      display: inline-block; width: 56px; height: 56px; flex-shrink: 0;
       background: url('img/back_icon.png') center/contain no-repeat;
       margin-top: -18px;
     }
     .submit-bar .btn-back:active { background: rgba(255,255,255,0.25); }
-    .submit-bar .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .submit-bar .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 0; }
     .submit-bar .count { font-size: 13px; color: var(--text-dim); flex-shrink: 0; }
     .submit-bar .btn-primary { width: auto; min-width: 120px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; gap: 4px; }
     .submit-bar .gen-icon { display: inline-block; width: 20px; height: 20px; background: url('img/generate_icon.png') center/contain no-repeat; flex-shrink: 0; }
@@ -257,10 +271,12 @@
     }
     .tab[data-tab="menu"] .icon { background-image: url('img/tab_menu_unselected.png'); }
     .tab[data-tab="dessert"] .icon { background-image: url('img/tab_dessert_unselected.png'); }
+    .tab[data-tab="fav"] .icon { background-image: url('img/tab_fav_unselected.png'); }
     .tab[data-tab="cart"] .icon { background-image: url('img/tab_cart_unselected.png'); }
     .tab[data-tab="invoice"] .icon { background-image: url('img/tab_invoice_unselected.png'); }
     .tab.active[data-tab="menu"] .icon { background-image: url('img/tab_menu_selected.png'); }
     .tab.active[data-tab="dessert"] .icon { background-image: url('img/tab_dessert_selected.png'); }
+    .tab.active[data-tab="fav"] .icon { background-image: url('img/tab_fav_selected.png'); }
     .tab.active[data-tab="cart"] .icon { background-image: url('img/tab_cart_selected.png'); }
     .tab.active[data-tab="invoice"] .icon { background-image: url('img/tab_invoice_selected.png'); }
 
@@ -304,9 +320,13 @@
     /* ===== Toast ===== */
     .toast {
       position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      background: rgba(74,48,52,0.85); color: #fff; padding: 12px 24px;
-      border-radius: var(--radius-sm); font-size: 14px; z-index: 100;
+      background: rgba(255,245,240,0.25);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      color: #4A3034; padding: 12px 24px;
+      border-radius: 16px; font-size: 14px; z-index: 100;
       display: none; text-align: center;
+      border: 1px solid rgba(255,255,255,0.15);
+      white-space: nowrap;
     }
     .toast.show { display: block; }
 
@@ -318,11 +338,46 @@
     }
     .capturing { pointer-events: none; opacity: 0.8; }
 
+    /* ===== 快门动效 ===== */
+    .shutter-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      pointer-events: none;
+    }
+    .shutter-ring {
+      position: absolute; top: 50%; left: 50%;
+      width: 80px; height: 80px;
+      border: 3px solid rgba(255,255,255,0.8);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.3);
+      opacity: 0;
+      animation: shutterAnim 0.5s ease-out forwards;
+    }
+    .shutter-flash {
+      position: absolute; inset: 0;
+      background: #fff;
+      opacity: 0;
+      animation: flashAnim 0.3s ease-out forwards;
+    }
+    @keyframes shutterAnim {
+      0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+      30% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
+      70% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.3; }
+      100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+    }
+    .shutter-ring { animation-duration: 0.8s; }
+    @keyframes flashAnim {
+      0% { opacity: 0.6; }
+      40% { opacity: 0.3; }
+      100% { opacity: 0; }
+    }
+    .shutter-flash { animation-duration: 0.6s; }
+
     @media (prefers-color-scheme: light) {
       :root { --card-bg: rgba(255,255,255,0.3); --card-border: rgba(255,255,255,0.3); }
     }
   </style>
-</head>
+
+  </head>
 <body>
 
 <div class="phone-frame">
@@ -370,7 +425,17 @@
     </div>
   </div>
 
-  <!-- ===== TAB 3: 购物车 ===== -->
+  <!-- ===== TAB 3: 收藏 ===== -->
+  <div class="page" id="pageFav">
+    <div class="header">
+      <span class="header-title">❤️ 我的收藏</span>
+    </div>
+    <div class="page-content" id="favContainer">
+      <div id="favList"></div>
+    </div>
+  </div>
+
+  <!-- ===== TAB 4: 购物车 ===== -->
   <div class="page" id="pageCart">
     <div class="header">
       <span class="header-title">🛒 购物车</span>
@@ -385,7 +450,7 @@
       <button class="btn-back" onclick="switchTab('menu')"><span class="back-icon"></span>本小姐还没选好回去回去！！！</button>
       <div class="row">
         <span class="count" id="cartCount"></span>
-        <button class="btn-primary gen-btn" onclick="showConfirmModal()"><span class="gen-icon"></span>生成点单图</button>
+        <button class="btn-primary gen-btn" onclick="showConfirmModal()"><span class="gen-icon"></span>选好了小何！</button>
       </div>
     </div>
   </div>
@@ -405,6 +470,7 @@
     <div class="tabs-wrap">
       <div class="tab active" data-tab="menu" onclick="switchTab('menu')"><span class="icon"></span>菜单</div>
       <div class="tab" data-tab="dessert" onclick="switchTab('dessert')"><span class="icon"></span>甜品·水果</div>
+      <div class="tab" data-tab="fav" onclick="switchTab('fav')"><span class="icon"></span>❤️收藏</div>
       <div class="tab" data-tab="cart" onclick="switchTab('cart')"><span class="icon"></span>购物车 <span id="cartBadge" style="font-size:10px;color:var(--pink-dark)"></span></div>
       <div class="tab" data-tab="invoice" onclick="switchTab('invoice')"><span class="icon"></span>发票</div>
     </div>
@@ -419,8 +485,8 @@
     <div class="modal-title">确认点单</div>
     <div id="confirmItems" style="font-size:14px;margin-bottom:12px"></div>
     <div id="confirmNote" style="font-size:12px;color:var(--text-dim);margin-bottom:14px"></div>
-    <div class="modal-opt primary" onclick="submitOrder()">✅ 确认生成</div>
-    <div class="modal-opt" onclick="closeModal('confirmModal')">← 返回修改</div>
+    <div class="modal-opt primary" onclick="submitOrder()">我就要吃这些！！</div>
+    <div class="modal-opt" onclick="closeModal('confirmModal')">我还要加！！</div>
   </div>
 </div>
 
@@ -455,6 +521,11 @@ const DEFAULT_DISHES = [
   // 炖煮
   { id: 'd16', name: '番茄牛腩', category: '🍲 炖煮', photo: 'img/dishes/番茄牛腩.jpg', emoji: '🥩', tags: ['浓郁','暖胃'], rating: 4.8 },
   { id: 'd27', name: '诱人小火锅', category: '🍲 炖煮', photo: 'img/dishes/诱人小火锅.jpg', emoji: '🍲', tags: ['暖身','丰富'], rating: 4.9 },
+  // 汤类
+  { id: 'd14', name: '紫菜蛋花汤', category: '🥣 汤类', photo: 'img/dishes/紫菜蛋花汤.jpg', emoji: '🥣', tags: ['清淡','快手'], rating: 4.5 },
+  { id: 'd15', name: '莲藕排骨汤', category: '🥣 汤类', photo: 'img/dishes/莲藕排骨汤.jpg', emoji: '🍖', tags: ['清甜','滋补'], rating: 4.7 },
+  { id: 'd33', name: '玉米排骨汤', category: '🥣 汤类', photo: 'img/dishes/玉米排骨汤.jpg', emoji: '🌽', tags: ['清甜','暖胃'], rating: 4.7 },
+  { id: 'd34', name: '榨菜汤', category: '🥣 汤类', photo: 'img/dishes/榨菜汤.jpg', emoji: '🥬', tags: ['开胃','简单'], rating: 4.3 },
   // 甜品·水果自选
   { id: 'd17', name: '美味小苹果', category: '🍉 甜品·水果', photo: 'img/dishes/美味小苹果.jpg', emoji: '🍎', tags: ['当季'], rating: 4.5 },
   { id: 'd18', name: '性感小橘子', category: '🍉 甜品·水果', photo: 'img/dishes/性感小橘子.jpg', emoji: '🍊', tags: ['当季'], rating: 4.6 },
@@ -463,6 +534,11 @@ const DEFAULT_DISHES = [
   { id: 'd21', name: '宇宙车厘子', category: '🍉 甜品·水果', photo: 'img/dishes/宇宙车厘子.jpg', emoji: '🍒', tags: ['推荐','进口'], rating: 4.9 },
   { id: 'd22', name: '超A葡萄', category: '🍉 甜品·水果', photo: 'img/dishes/超A葡萄.jpg', emoji: '🍇', tags: ['当季','爆汁'], rating: 4.6 },
   { id: 'd23', name: '甜美小西瓜', category: '🍉 甜品·水果', photo: 'img/dishes/甜美小西瓜.jpg', emoji: '🍉', tags: ['当季','解暑'], rating: 4.7 },
+  { id: 'd35', name: '刺激大山竹', category: '🍉 甜品·水果', photo: 'img/dishes/刺激大山竹.jpg', emoji: '🟤', tags: ['当季','热带'], rating: 4.7 },
+  { id: 'd36', name: '暖阳小荔枝', category: '🍉 甜品·水果', photo: 'img/dishes/暖阳小荔枝.jpg', emoji: '🍒', tags: ['当季','甜蜜'], rating: 4.8 },
+  { id: 'd37', name: '漩涡凤梨', category: '🍉 甜品·水果', photo: 'img/dishes/漩涡凤梨.jpg', emoji: '🍍', tags: ['热带','酸甜'], rating: 4.6 },
+  { id: 'd38', name: '美味小蛋糕', category: '🍉 甜品·水果', photo: 'img/dishes/美味小蛋糕.jpg', emoji: '🧁', tags: ['甜品','绵密'], rating: 4.8 },
+  { id: 'd39', name: '多姿多彩小奶茶', category: '🍉 甜品·水果', photo: 'img/dishes/多姿多彩小奶茶.jpg', emoji: '🧋', tags: ['甜品','丝滑'], rating: 4.7 },
   { id: 'd24', name: '随机美味拼盘', category: '🍉 甜品·水果', photo: 'img/dishes/随机美味拼盘.jpg', emoji: '🎲', tags: ['惊喜','当日精选'], rating: 5.0 },
   { id: 'd28', name: '面包的诱惑', category: '🍉 甜品·水果', photo: 'img/dishes/面包的诱惑.jpg', emoji: '🍞', tags: ['甜品','经典'], rating: 4.8 },
   { id: 'd29', name: '豆奶盒子', category: '🍉 甜品·水果', photo: 'img/dishes/豆奶盒子.jpg', emoji: '🧁', tags: ['甜品','香甜'], rating: 4.7 },
@@ -490,7 +566,7 @@ function getAnniversaryDays() {
 function init() {
   // 加载菜单（先从localStorage取，没有用默认）
   // 加载菜单 — 版本检测强制刷新新菜单
-  const DISHES_VERSION = 'v13'
+  const DISHES_VERSION = 'v16'
   const savedVersion = localStorage.getItem('dishes_version')
   if (savedVersion !== DISHES_VERSION) {
     localStorage.removeItem('dishes')
@@ -564,7 +640,7 @@ function pickRecommend() {
   window._recommendDish = pick
 }
 function addRecommend() {
-  if (window._recommendDish) { addToCart(window._recommendDish, event); toast('已加入购物车 ✅') }
+  if (window._recommendDish) { addToCart(window._recommendDish, event); showCustomToast() }
 }
 
 // ===== 菜品渲染 =====
@@ -592,7 +668,7 @@ function renderDishes() {
         <div class="dish-meta">${(d.tags||[]).map(t => '<span class="dish-tag">'+t+'</span>').join('')}</div>
         <div class="dish-act">
           <button class="btn-light" onclick="addToCart(dishes.find(x=>x.id==='${d.id}'), event)">+ 点菜</button>
-          <button class="btn-light" onclick="toast('❤️ 已收藏')">❤️ 收藏</button>
+          <button class="btn-light" onclick="handleFav(this,dishes.find(x=>x.id==='${d.id}'))">❤️ 收藏</button>
         </div>
       </div>
     </div>
@@ -632,6 +708,28 @@ function renderDessert() {
 }
 
 // ===== 随机选菜 =====
+
+// 收藏切换
+function handleFav(btn, dish) {
+  if (!dish) return
+  let favs = JSON.parse(localStorage.getItem('favorites') || '[]')
+  if (!favs.includes(dish.id)) {
+    favs.push(dish.id)
+    localStorage.setItem('favorites', JSON.stringify(favs))
+    showFavToast()
+    setTimeout(function(){renderDishes()}, 100)
+  }
+}
+function toggleFav(id) {
+  let favs = JSON.parse(localStorage.getItem('favorites') || '[]')
+  if (favs.includes(id)) {
+    favs = favs.filter(f => f !== id)
+    localStorage.setItem('favorites', JSON.stringify(favs))
+    showUnfavToast()
+    if (document.getElementById('favList')) renderFavorites()
+  }
+}
+
 function randomPick() {
   const list = getFilteredDishes()
   if (list.length === 0) return
@@ -656,7 +754,7 @@ function addToCart(dish, event) {
   renderCart()
   updateCartBadge()
   flyToCart(dish, event)
-  toast('✅ 已加入购物车')
+  showCustomToast()
 }
 
 function addToCart(dish, event) {
@@ -667,7 +765,7 @@ function addToCart(dish, event) {
   renderCart()
   updateCartBadge()
   flyToCart(dish, event)
-  toast('✅ 已加入购物车')
+  showCustomToast()
 }
 
 // ===== 飞入购物车动效 =====
@@ -720,7 +818,7 @@ function renderCart() {
   const tabbar = document.querySelector('.tabbar')
 
   if (cart.length === 0) {
-    el.innerHTML = '<div class="empty-hint">🛒 购物车是空的<br><span style="font-size:13px">去菜单里挑几道想吃的吧</span></div>'
+    el.innerHTML = '<div class="empty-hint">🎀 还没点菜呢！！看我填满这里！</div>'
     form.style.display = 'none'
     bar.style.display = 'none'
     tabbar.style.display = ''
@@ -744,7 +842,7 @@ function renderCart() {
 
   form.style.display = 'block'
   bar.style.display = 'flex'
-  document.getElementById('cartCount').textContent = `共 ${cart.reduce((s,c)=>s+c.qty,0)} 道菜`
+  document.getElementById('cartCount').textContent = `我饿了！！`
 }
 
 function changeQty(i, delta) {
@@ -864,6 +962,14 @@ function deleteInvoice(idx) {
 async function captureInvoice(id) {
   const el = document.getElementById('invoice-' + id)
   if (!el) return
+
+  // 快门动效
+  const overlay = document.createElement('div')
+  overlay.className = 'shutter-overlay'
+  overlay.innerHTML = '<div class="shutter-flash"></div><div class="shutter-ring"></div>'
+  document.body.appendChild(overlay)
+
+  await new Promise(r => setTimeout(r, 600))
   try {
     toast('生成中...')
     const canvas = await html2canvas(el, {
@@ -880,7 +986,24 @@ async function captureInvoice(id) {
   } catch (e) {
     toast('保存失败，试试截图')
     console.error(e)
+  } finally {
+    overlay.remove()
   }
+}
+
+// ===== 收藏页 =====
+function renderFavorites() {
+  const favs = JSON.parse(localStorage.getItem('favorites') || '[]')
+  const dishes = JSON.parse(localStorage.getItem('dishes') || '[]')
+  const el = document.getElementById('favList')
+  if (!el) return
+  if (favs.length === 0) { el.innerHTML = '<div class="empty-hint">❤️ 还没有收藏的菜</div>'; return }
+  const favDishes = dishes.filter(d => favs.includes(d.id))
+  el.innerHTML = favDishes.map(d => {
+    const photo = d.photo ? '<img src="'+d.photo+'">' : (d.emoji||'🍽️')
+    const tags = (d.tags||[]).map(t => '<span class="dish-tag">'+t+'</span>').join('')
+    return '<div class="card dish-card"><div class="dish-pic">'+photo+'</div><div class="dish-info"><div class="dish-name">'+d.name+(d.rating?' <span style="color:var(--pink-dark);font-size:12px">⭐'+d.rating+'</span>':'')+'</div><div class="dish-meta">'+tags+'</div><div class="dish-act"><button class="btn-light" onclick="addToCart(dishes.find(x=>x.id===\''+d.id+'\'),event)">+ 点菜</button><button class="btn-light" onclick="toggleFav(\''+d.id+'\')">♡ 取消收藏</button></div></div></div>'
+  }).join('')
 }
 
 // ===== 页面切换 =====
@@ -897,7 +1020,7 @@ function switchTab(name) {
     tabbar.style.display = ''
   }
   if (name === 'dessert') renderDessert()
-  // 移动指示器到激活的tab
+  if (name === 'fav') renderFavorites()
   const activeTab = document.querySelector(`.tab[data-tab="${name}"]`)
   const indicator = document.getElementById('tabIndicator')
   if (activeTab && indicator) {
@@ -925,6 +1048,27 @@ function showModal(id, html) {
 }
 
 // ===== Toast =====
+function showCustomToast() {
+  const el = document.getElementById('toast')
+  el.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><img src="img/ok_icon.png" style="width:28px;height:28px;border-radius:4px">不够！我还要！！！</span>'
+  el.classList.add('show')
+  clearTimeout(window._toastTimer)
+  window._toastTimer = setTimeout(() => el.classList.remove('show'), 2000)
+}
+function showFavToast() {
+  const el = document.getElementById('toast')
+  el.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><img src="img/fav_icon.png" style="width:28px;height:28px;border-radius:4px">好吃好吃！下次还要！</span>'
+  el.classList.add('show')
+  clearTimeout(window._toastTimer)
+  window._toastTimer = setTimeout(() => el.classList.remove('show'), 2000)
+}
+function showUnfavToast() {
+  const el = document.getElementById('toast')
+  el.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><img src="img/fav_icon.png" style="width:28px;height:28px;border-radius:4px">下次再来宠幸你！！！</span>'
+  el.classList.add('show')
+  clearTimeout(window._toastTimer)
+  window._toastTimer = setTimeout(() => el.classList.remove('show'), 2000)
+}
 function toast(msg) {
   const el = document.getElementById('toast')
   el.textContent = msg
