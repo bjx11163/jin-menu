@@ -12,7 +12,7 @@
         <text class="season-text">{{seasonRecommend}}</text>
       </view>
       <view wx:for="{{fruits}}" wx:key="id" class="card dish-card">
-        <image class="dish-img" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}"></image>
+        <image class="dish-img" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}" data-src="{{item.photo}}" bindtap="previewImg"></image>
         <text class="dish-emoji" wx:else>{{item.emoji}}</text>
         <view class="dish-info">
           <view class="dish-name-row">
@@ -30,6 +30,11 @@
       </view>
     </scroll-view>
   </view>
+</view>
+
+<!-- ===== 图片预览弹窗 ===== -->
+<view class="img-preview {{previewShow ? 'show' : ''}}" bindtap="closePreview">
+  <image class="preview-img" src="{{previewSrc}}" mode="widthFix" wx:if="{{previewShow}}" catchtap=""></image>
 </view>
 
 <view class="toast-overlay {{showToast ? 'show' : ''}}">

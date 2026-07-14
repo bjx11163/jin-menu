@@ -1,6 +1,6 @@
 const app = getApp()
 Page({
-  data: { fruits: [], seasonRecommend: '', showToast: false, toastIcon: '', toastText: '' },
+  data: { fruits: [], seasonRecommend: '', showToast: false, toastIcon: '', toastText: '', previewShow: false, previewSrc: '' },
   onShow() {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({ currentTab: 1, hideTabbar: false })
@@ -10,6 +10,17 @@ Page({
     const dishes = wx.getStorageSync('dishes') || app.getDefaultDishes()
     this.setData({ fruits: dishes.filter(d => d.category === '甜品水果') })
     this.setSeason()
+  },
+  previewImg(e) {
+    const src = e.currentTarget.dataset.src
+    if (src) this.setData({ previewSrc: src, previewShow: true })
+  },
+  closePreview() {
+    this.setData({ previewShow: false })
+  },
+  previewImg(e) {
+    const src = e.currentTarget.dataset.src
+    if (src) wx.previewImage({ urls: [src], current: src })
   },
   setSeason() {
     const month = new Date().getMonth()+1

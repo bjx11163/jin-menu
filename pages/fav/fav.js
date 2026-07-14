@@ -11,6 +11,10 @@ Page({
       favDishes: favs.length > 0 ? dishes.filter(d => favs.includes(d.id)) : []
     })
   },
+  previewImg(e) {
+    const src = e.currentTarget.dataset.src
+    if (src) wx.previewImage({ urls: [src], current: src })
+  },
   addToCart(e) {
     const id = e.currentTarget.dataset.id
     const dish = this.data.dishes.find(d => d.id === id)

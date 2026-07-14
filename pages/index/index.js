@@ -10,6 +10,7 @@ Page({
     favorites: [],
     showToast: false, toastIcon: '', toastText: '',
     flyShow: false, flyX: 0, flyY: 0, flyPhoto: '', flyEmoji: '',
+    previewShow: false, previewSrc: '',
   },
 
   onLoad() {
@@ -115,6 +116,14 @@ Page({
   },
 
   // 随机选菜
+  previewImg(e) {
+    const src = e.currentTarget.dataset.src
+    if (src) this.setData({ previewSrc: src, previewShow: true })
+  },
+  closePreview() {
+    this.setData({ previewShow: false })
+  },
+
   randomPick() {
     const list = this.data.displayDishes
     if (list.length === 0) return

@@ -4,7 +4,7 @@
     <view class="header"><text class="header-title">❤️ 我的收藏</text></view>
     <view wx:if="{{favDishes.length === 0}}" class="empty-hint">❤️ 还没有收藏的菜</view>
     <view wx:for="{{favDishes}}" wx:key="id" class="card dish-card">
-      <image class="dish-img" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}"></image>
+      <image class="dish-img" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}" data-src="{{item.photo}}" bindtap="previewImg"></image>
       <text class="dish-emoji" wx:else>{{item.emoji}}</text>
       <view class="dish-info">
         <view class="dish-name-row">
@@ -21,6 +21,11 @@
       </view>
     </view>
   </view>
+</view>
+
+<!-- ===== 图片预览弹窗 ===== -->
+<view class="img-preview {{previewShow ? 'show' : ''}}" bindtap="closePreview">
+  <image class="preview-img" src="{{previewSrc}}" mode="widthFix" wx:if="{{previewShow}}" catchtap=""></image>
 </view>
 
 <!-- ===== 自定义Toast ===== -->
