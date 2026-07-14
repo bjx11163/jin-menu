@@ -1,0 +1,32 @@
+<view class="page">
+  <image class="bg" src="/img/bg.jpg" mode="aspectFill"></image>
+  <view class="page-content">
+    <view class="header"><text class="header-title">❤️ 我的收藏</text></view>
+    <view wx:if="{{favDishes.length === 0}}" class="empty-hint">❤️ 还没有收藏的菜</view>
+    <view wx:for="{{favDishes}}" wx:key="id" class="card dish-card">
+      <image class="dish-img" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}"></image>
+      <text class="dish-emoji" wx:else>{{item.emoji}}</text>
+      <view class="dish-info">
+        <view class="dish-name-row">
+          <text class="dish-name">{{item.name}}</text>
+          <text wx:if="{{item.rating}}" class="dish-rating">⭐{{item.rating}}</text>
+        </view>
+        <view class="dish-tags">
+          <text wx:for="{{item.tags}}" wx:key="*this" class="tag">{{item}}</text>
+        </view>
+        <view class="dish-act">
+          <button class="btn-light" bindtap="addToCart" data-id="{{item.id}}">+ 点菜</button>
+          <button class="btn-light fav-btn" bindtap="removeFav" data-id="{{item.id}}">💔 取消收藏</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- ===== 自定义Toast ===== -->
+<view class="toast-overlay {{showToast ? 'show' : ''}}">
+  <view class="toast-box">
+    <image class="toast-icon" src="{{toastIcon}}" mode="aspectFit"></image>
+    <text class="toast-text">{{toastText}}</text>
+  </view>
+</view>

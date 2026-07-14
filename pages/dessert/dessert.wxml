@@ -1,0 +1,40 @@
+<view class="bg-wrapper">
+  <image class="bg" src="/img/bg.jpg" mode="aspectFill"></image>
+  <view class="app">
+    <view class="header">
+      <view class="header-left">
+        <text class="header-title">🍉 甜品·水果</text>
+      </view>
+    </view>
+    <scroll-view class="page-content" scroll-y>
+      <view class="card season-card">
+        <text class="season-label">🍑 当季推荐</text>
+        <text class="season-text">{{seasonRecommend}}</text>
+      </view>
+      <view wx:for="{{fruits}}" wx:key="id" class="card dish-card">
+        <image class="dish-img" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}"></image>
+        <text class="dish-emoji" wx:else>{{item.emoji}}</text>
+        <view class="dish-info">
+          <view class="dish-name-row">
+            <text class="dish-name">{{item.name}}</text>
+            <text class="dish-rating" wx:if="{{item.rating}}">⭐{{item.rating}}</text>
+          </view>
+          <view class="dish-tags">
+            <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+          </view>
+          <view class="dish-act">
+            <button class="btn-light" bindtap="addToCart" data-id="{{item.id}}">+ 点菜</button>
+            <button class="btn-light fav-btn" bindtap="doFav" data-id="{{item.id}}">❤️ 收藏</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<view class="toast-overlay {{showToast ? 'show' : ''}}">
+  <view class="toast-box">
+    <image class="toast-icon" src="{{toastIcon}}" mode="aspectFit"></image>
+    <text class="toast-text">{{toastText}}</text>
+  </view>
+</view>

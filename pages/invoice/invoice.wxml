@@ -1,0 +1,43 @@
+<view class="bg-wrapper">
+  <image class="bg" src="/img/bg.jpg" mode="aspectFill"></image>
+  <view class="app">
+    <view class="header">
+      <view class="header-left">
+        <text class="header-title">📄 点单发票</text>
+      </view>
+    </view>
+    <scroll-view class="page-content" scroll-y>
+      <view wx:if="{{invoices.length===0}}" class="empty-hint">📄 还没有点单记录</view>
+      <view wx:for="{{invoices}}" wx:key="id" wx:for-item="inv" class="invoice-area">
+        <view class="invoice-card" id="invoice-{{inv.id}}">
+          <view class="inv-title">小金的专属</view>
+          <view class="inv-date">{{inv.date}}</view>
+          <view class="inv-divider"></view>
+          <view wx:for="{{inv.items}}" wx:key="dishId" class="inv-item">
+            <view class="inv-item-left">
+              <image src="{{item.photo}}" mode="aspectFill" style="width:24px;height:24px;border-radius:4px" wx:if="{{item.photo}}"></image>
+              {{item.name}}
+            </view>
+            <text>×{{item.qty}}</text>
+          </view>
+          <view wx:if="{{inv.note}}" class="inv-note">💬 {{inv.note}}</view>
+          <view class="inv-divider"></view>
+          <view class="inv-total">共 {{inv.totalQty}} 道菜</view>
+          <view class="inv-footer">💝 在一起 {{anniversaryDays}} 天 · 做好啦叫我来吃 😋</view>
+          <view class="inv-rating">
+            <text style="font-size:13px;font-weight:600;color:#4A3034">⭐ 评价</text>
+            <view class="stars">
+              <text wx:for="{{[1,2,3,4,5]}}" wx:key="*this" data-id="{{inv.id}}" data-star="{{index}}" bindtap="setRating" style="font-size:28px;color:{{inv.rating>=index+1?'#f5a623':'#ddd'}}">★</text>
+            </view>
+          </view>
+          <view class="inv-wish">
+            <input placeholder="🎯 想吃啥？让厨师学一下…" data-id="{{inv.id}}" bindblur="setWish" value="{{inv.wish}}"></input>
+          </view>
+        </view>
+        <view class="inv-actions">
+          <button class="btn-primary" bindtap="captureInvoice" data-id="{{inv.id}}">📷 保存图片</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

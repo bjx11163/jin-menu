@@ -1,0 +1,53 @@
+<view class="bg-wrapper">
+  <image class="bg" src="/img/bg.jpg" mode="aspectFill"></image>
+  <view class="app">
+    <view class="header">
+      <view class="header-left">
+        <text class="header-title">🛒 购物车</text>
+      </view>
+    </view>
+    <scroll-view class="page-content" scroll-y>
+      <view wx:if="{{cart.length === 0}}" class="empty-hint">🎀 还没点菜呢！！看我填满这里！</view>
+      <view wx:for="{{cart}}" wx:key="id" class="card cart-item">
+        <image class="cart-pic" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}"></image>
+        <text class="cart-pic" wx:else>{{item.emoji}}</text>
+        <view class="cart-info">
+          <text class="cart-name">{{item.name}}</text>
+          <view class="cart-qty">
+            <view class="qty-btn" bindtap="changeQty" data-index="{{index}}" data-delta="-1">−</view>
+            <text class="qty-num">{{item.qty}}</text>
+            <view class="qty-btn" bindtap="changeQty" data-index="{{index}}" data-delta="1">+</view>
+            <view class="qty-del" bindtap="removeItem" data-index="{{index}}">🗑️</view>
+          </view>
+        </view>
+      </view>
+      <view class="card" wx:if="{{cart.length > 0}}">
+        <textarea class="note" placeholder="💬 写个备注…（少放辣/多加点葱/情话）" bindinput="onNote" maxlength="100"></textarea>
+      </view>
+    </scroll-view>
+    <view class="submit-bar" wx:if="{{cart.length > 0}}">
+      <view class="btn-back" bindtap="goBack"><image class="back-icon" src="/img/back_icon.png" mode="aspectFit"></image>本小姐还没选好回去回去！！！</view>
+      <view class="row">
+        <text class="count">才几道菜不够！！</text>
+        <button class="btn-primary" bindtap="showConfirm"><image class="gen-icon" src="/img/generate_icon.png" mode="aspectFit"></image> 选好了小何！</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- ===== 确认弹窗 ===== -->
+<view class="modal-overlay {{showConfirm ? 'show' : ''}}" bindtap="hideConfirm">
+  <view class="modal-box" catchtap="">
+    <view class="modal-title">确认点单</view>
+    <view class="confirm-items">
+      <view wx:for="{{cart}}" wx:key="id" class="confirm-item">
+        <image class="confirm-img" src="{{item.photo}}" mode="aspectFill" wx:if="{{item.photo}}"></image>
+        <text class="confirm-name">{{item.name}}</text>
+        <text class="confirm-qty">×{{item.qty}}</text>
+      </view>
+    </view>
+    <view class="confirm-note" wx:if="{{note}}">💬 {{note}}</view>
+    <button class="modal-btn primary" catchtap="doSubmit">我就要吃这些！！</button>
+    <button class="modal-btn" catchtap="hideConfirm">我还要加！！</button>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+page { background: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.bg-wrapper { position: relative; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+.app { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; }
+.page-content { flex: 1; overflow-y: auto; padding: 24rpx 32rpx 200rpx 32rpx; padding-top: 100rpx; }
+.header {
+  display: flex; align-items: center; flex-shrink: 0;
+  padding: 20rpx 32rpx; padding-top: calc(48rpx + env(safe-area-inset-top));
+  background: rgba(255,245,240,0.3); backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.header-left { display: flex; align-items: center; gap: 12rpx; margin-right: auto; }
+.header-title { font-size: 30rpx; font-weight: 700; color: #4A3034; }
+
+.card { background: rgba(255,255,255,0.08); backdrop-filter: blur(6px); border-radius: 28rpx; padding: 24rpx; margin-bottom: 16rpx; }
+.cart-item { display: flex; gap: 20rpx; align-items: center; padding: 24rpx 0; }
+.cart-pic { width: 160rpx; height: 160rpx; border-radius: 16rpx; flex-shrink: 0; background: rgba(255,255,255,0.08); overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 60rpx; }
+.cart-info { flex: 1; min-width: 0; }
+.cart-name { font-size: 32rpx; font-weight: 600; color: #4A3034; display: block; margin-bottom: 16rpx; }
+.cart-qty { display: flex; align-items: center; gap: 16rpx; }
+.qty-btn { width: 56rpx; height: 56rpx; border-radius: 28rpx; background: rgba(255,245,240,0.4); display: flex; align-items: center; justify-content: center; font-size: 32rpx; color: #4A3034; }
+.qty-num { font-size: 32rpx; font-weight: 600; color: #E88892; min-width: 48rpx; text-align: center; }
+.qty-del { font-size: 28rpx; padding: 4rpx; }
+.note { width: 100%; min-height: 120rpx; border-radius: 16rpx; background: rgba(255,245,240,0.3); border: 1px solid rgba(255,255,255,0.2); color: #4A3034; padding: 20rpx; font-size: 26rpx; }
+.note::placeholder { color: rgba(74,48,52,0.35); }
+.empty-hint { text-align: center; padding: 200rpx 0; color: rgba(74,48,52,0.5); font-size: 30rpx; }
+
+.submit-bar { position: fixed; bottom: 0; left: 0; right: 0; padding: 0 28rpx calc(10rpx + env(safe-area-inset-bottom)) 28rpx; display: flex; flex-direction: column; gap: 12rpx; z-index: 10; }
+.btn-back { background: rgba(255,245,240,0.35); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 48rpx; padding: 24rpx 0; font-size: 28rpx; color: #4A3034; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12rpx; }
+.back-icon { width: 100rpx; height: 100rpx; margin-top: -28rpx; }
+.row { display: flex; align-items: center; justify-content: center; gap: 16rpx; padding: 16rpx 0; position: relative; }
+.btn-primary { background: #fff; color: #E88892; border: none; border-radius: 14rpx; padding: 24rpx 48rpx; font-size: 36rpx; font-weight: 600; line-height: 1; display: flex; align-items: center; gap: 10rpx; min-width: 260rpx; justify-content: center; position: absolute; left: 50%; transform: translateX(-50%); }
+.btn-primary::after { border: none; }
+.gen-icon { width: 40rpx; height: 40rpx; }
+
+/* ===== 确认弹窗 ===== */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 50; display: none; align-items: center; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal-box { background: rgba(255,245,240,0.95); backdrop-filter: blur(20px); border-radius: 28rpx; padding: 40rpx; width: 520rpx; }
+.modal-title { font-size: 30rpx; font-weight: 600; margin-bottom: 20rpx; text-align: center; color: #4A3034; }
+.confirm-items { margin-bottom: 16rpx; }
+.confirm-item { display: flex; align-items: center; gap: 12rpx; padding: 12rpx 0; border-bottom: 1px solid rgba(74,48,52,0.06); }
+.confirm-img { width: 48rpx; height: 48rpx; border-radius: 8rpx; flex-shrink: 0; }
+.confirm-name { flex: 1; font-size: 26rpx; color: #4A3034; }
+.confirm-qty { font-size: 24rpx; color: rgba(74,48,52,0.5); }
+.confirm-note { font-size: 22rpx; color: rgba(74,48,52,0.5); text-align: center; margin-bottom: 20rpx; }
+.modal-btn { width: 100%; padding: 20rpx; border-radius: 16rpx; margin-bottom: 12rpx; text-align: center; font-size: 26rpx; background: rgba(245,160,168,0.1); color: #4A3034; line-height: 1; border: none; }
+.modal-btn::after { border: none; }
+.modal-btn.primary { color: #fff; background: linear-gradient(135deg, #F5A0A8, #E88892); }
