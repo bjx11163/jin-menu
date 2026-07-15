@@ -384,9 +384,16 @@
     }
     .img-preview-overlay.show { display: flex; }
     .img-preview-overlay img {
-      max-width: 90%; max-height: 80vh;
+      max-width: 90vw; max-height: 85vh;
+      width: auto; height: auto;
       border-radius: 12px; object-fit: contain;
       cursor: default;
+    }
+    @media (max-width: 420px) {
+      .img-preview-overlay img {
+        max-width: 92vw; max-height: 82vh;
+        border-radius: 10px;
+      }
     }
   </style>
 
