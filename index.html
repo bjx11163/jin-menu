@@ -726,6 +726,7 @@ function renderDessert() {
         <div class="dish-meta">${(d.tags||[]).map(t => '<span class="dish-tag">'+t+'</span>').join('')}</div>
         <div class="dish-act">
           <button class="btn-light" onclick="addToCart(dishes.find(x=>x.id==='${d.id}'), event)">+ 点菜</button>
+          <button class="btn-light" onclick="handleFav(this,dishes.find(x=>x.id==='${d.id}'))">❤️ 收藏</button>
         </div>
       </div>
     </div>
