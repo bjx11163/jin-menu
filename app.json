@@ -24,5 +24,6 @@
       {"pagePath": "pages/invoice/invoice","iconPath": "images/invoice.png","selectedIconPath": "images/invoice_hl.png","text":"发票"}
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

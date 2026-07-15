@@ -1,5 +1,5 @@
 <view class="bg-wrapper">
-  <image class="bg" src="/img/bg.jpg" mode="aspectFill"></image>
+  <image class="bg" src="https://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.comhttps://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.com/img/" mode="aspectFill"></image>
   <view class="app">
     <view class="header">
       <view class="header-left">
@@ -26,10 +26,10 @@
       </view>
     </scroll-view>
     <view class="submit-bar" wx:if="{{cart.length > 0}}">
-      <view class="btn-back" bindtap="goBack"><image class="back-icon" src="/img/back_icon.png" mode="aspectFit"></image>本小姐还没选好回去回去！！！</view>
+      <view class="btn-back" bindtap="goBack"><image class="back-icon" src="https://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.comhttps://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.com/img/" mode="aspectFit"></image>本小姐还没选好回去回去！！！</view>
       <view class="row">
         <text class="count">才几道菜不够！！</text>
-        <button class="btn-primary" bindtap="showConfirm"><image class="gen-icon" src="/img/generate_icon.png" mode="aspectFit"></image> 选好了小何！</button>
+        <button class="btn-primary" bindtap="showConfirm"><image class="gen-icon" src="https://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.comhttps://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.com/img/" mode="aspectFit"></image> 选好了小何！</button>
       </view>
     </view>
   </view>
