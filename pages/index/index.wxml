@@ -1,9 +1,9 @@
 <view class="bg-wrapper">
-  <image class="bg" src="/img/bg.jpg" mode="aspectFill"></image>
+  <image class="bg" src="https://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.com/img/bg.jpg" mode="aspectFill"></image>
   <view class="app">
     <view class="header">
       <view class="header-left">
-        <image class="logo-icon" src="/img/logo_icon.png" mode="aspectFit"></image>
+        <image class="logo-icon" src="https://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.com/img/logo_icon.png" mode="aspectFit"></image>
         <text class="header-title">小金的专属</text>
       </view>
       <view class="header-right">
@@ -42,7 +42,7 @@
       </view>
     </scroll-view>
     <view class="float-btn" bindtap="randomPick">
-      <image src="/img/dice_icon.png" mode="aspectFit" style="width:28px;height:28px"></image>
+      <image src="https://jinandhe-foreverhe-1453703478.cos.ap-guangzhou.myqcloud.com/img/dice_icon.png" mode="aspectFit" style="width:28px;height:28px"></image>
     </view>
   </view>
 </view>
