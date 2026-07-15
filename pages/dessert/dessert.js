@@ -18,10 +18,6 @@ Page({
   closePreview() {
     this.setData({ previewShow: false })
   },
-  previewImg(e) {
-    const src = e.currentTarget.dataset.src
-    if (src) wx.previewImage({ urls: [src], current: src })
-  },
   setSeason() {
     const month = new Date().getMonth()+1
     let picks = []

@@ -40,3 +40,6 @@ page { background: transparent; font-family: -apple-system, BlinkMacSystemFont, 
 .toast-box { background: rgba(255,245,240,0.25); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.15); border-radius: 28rpx; padding: 20rpx 40rpx; display: flex; align-items: center; gap: 12rpx; white-space: nowrap; }
 .toast-icon { width: 48rpx; height: 48rpx; border-radius: 8rpx; flex-shrink: 0; }
 .toast-text { font-size: 28rpx; color: #4A3034; font-weight: 500; white-space: nowrap; }
+.img-preview { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; display: none; align-items: center; justify-content: center; }
+.img-preview.show { display: flex; }
+.preview-img { max-width: 90%; max-height: 80vh; border-radius: 16rpx; }

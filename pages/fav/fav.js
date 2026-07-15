@@ -13,7 +13,10 @@ Page({
   },
   previewImg(e) {
     const src = e.currentTarget.dataset.src
-    if (src) wx.previewImage({ urls: [src], current: src })
+    if (src) this.setData({ previewSrc: src, previewShow: true })
+  },
+  closePreview() {
+    this.setData({ previewShow: false })
   },
   addToCart(e) {
     const id = e.currentTarget.dataset.id

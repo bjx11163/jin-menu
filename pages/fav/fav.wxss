@@ -40,6 +40,11 @@ page { background: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, "Seg
 }
 .btn-primary:active { opacity: 0.8; }
 .btn-primary::after { border: none; }
+
+/* ===== 图片预览 ===== */
+.img-preview { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; display: none; align-items: center; justify-content: center; }
+.img-preview.show { display: flex; }
+.preview-img { max-width: 90%; max-height: 80vh; border-radius: 16rpx; }
 .btn-light {
   background: rgba(255,245,240,0.55);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
