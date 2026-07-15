@@ -1,0 +1,4 @@
+# 菜品图片已迁移至腾讯云COS，不需要在仓库里
+/img/dishes/
+# 临时文件
+rename_images.js
