@@ -2,5 +2,3 @@
 /img/dishes/
 # 临时文件
 rename_images.js
-# node_modules
-node_modules/
