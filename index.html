@@ -375,6 +375,19 @@
     @media (prefers-color-scheme: light) {
       :root { --card-bg: rgba(255,255,255,0.3); --card-border: rgba(255,255,255,0.3); }
     }
+
+    /* ===== 图片预览弹窗 ===== */
+    .img-preview-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+      z-index: 500; display: none; align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .img-preview-overlay.show { display: flex; }
+    .img-preview-overlay img {
+      max-width: 90%; max-height: 80vh;
+      border-radius: 12px; object-fit: contain;
+      cursor: default;
+    }
   </style>
 
   </head>
@@ -478,6 +491,11 @@
   </div> <!-- app -->
   </div> <!-- phone-screen -->
 </div> <!-- phone-frame -->
+
+<!-- ===== 图片预览弹窗 ===== -->
+<div class="img-preview-overlay" id="imgPreview" onclick="closeImgPreview()">
+  <img id="previewImg" src="" onclick="event.stopPropagation()">
+</div>
 
 <!-- ===== 确认提交 Modal ===== -->
 <div class="modal-overlay" id="confirmModal">
@@ -662,7 +680,7 @@ function renderDishes() {
   }
   el.innerHTML = list.map(d => `
     <div class="card dish-card">
-      <div class="dish-pic">${d.photo ? `<img src="${d.photo}" alt="${d.name}">` : (d.emoji || '🍽️')}</div>
+      <div class="dish-pic" onclick="previewImg('${d.photo}')" style="cursor:pointer">${d.photo ? `<img src="${d.photo}" alt="${d.name}">` : (d.emoji || '🍽️')}</div>
       <div class="dish-info">
         <div class="dish-name">${d.name} ${d.rating ? '<span style="color:var(--pink-dark);font-size:12px">⭐'+d.rating+'</span>' : ''}</div>
         <div class="dish-meta">${(d.tags||[]).map(t => '<span class="dish-tag">'+t+'</span>').join('')}</div>
@@ -695,7 +713,7 @@ function renderDessert() {
 
   el.innerHTML = fruits.map(d => `
     <div class="card dish-card">
-      <div class="dish-pic">${d.photo ? `<img src="${d.photo}">` : (d.emoji || '🍽️')}</div>
+      <div class="dish-pic" onclick="previewImg('${d.photo}')" style="cursor:pointer">${d.photo ? `<img src="${d.photo}">` : (d.emoji || '🍽️')}</div>
       <div class="dish-info">
         <div class="dish-name">${d.name} ${d.rating ? '<span style="color:var(--pink-dark);font-size:12px">⭐'+d.rating+'</span>' : ''}</div>
         <div class="dish-meta">${(d.tags||[]).map(t => '<span class="dish-tag">'+t+'</span>').join('')}</div>
@@ -705,6 +723,16 @@ function renderDessert() {
       </div>
     </div>
   `).join('')
+}
+
+// ===== 图片预览 =====
+function previewImg(src) {
+  if (!src) return
+  document.getElementById('previewImg').src = src
+  document.getElementById('imgPreview').classList.add('show')
+}
+function closeImgPreview() {
+  document.getElementById('imgPreview').classList.remove('show')
 }
 
 // ===== 随机选菜 =====
@@ -1000,7 +1028,7 @@ function renderFavorites() {
   if (favs.length === 0) { el.innerHTML = '<div class="empty-hint">❤️ 还没有收藏的菜</div>'; return }
   const favDishes = dishes.filter(d => favs.includes(d.id))
   el.innerHTML = favDishes.map(d => {
-    const photo = d.photo ? '<img src="'+d.photo+'">' : (d.emoji||'🍽️')
+    const photo = d.photo ? '<img src="'+d.photo+'" style="cursor:pointer" onclick="previewImg(\''+d.photo+'\')">' : (d.emoji||'🍽️')
     const tags = (d.tags||[]).map(t => '<span class="dish-tag">'+t+'</span>').join('')
     return '<div class="card dish-card"><div class="dish-pic">'+photo+'</div><div class="dish-info"><div class="dish-name">'+d.name+(d.rating?' <span style="color:var(--pink-dark);font-size:12px">⭐'+d.rating+'</span>':'')+'</div><div class="dish-meta">'+tags+'</div><div class="dish-act"><button class="btn-light" onclick="addToCart(dishes.find(x=>x.id===\''+d.id+'\'),event)">+ 点菜</button><button class="btn-light" onclick="toggleFav(\''+d.id+'\')">♡ 取消收藏</button></div></div></div>'
   }).join('')
